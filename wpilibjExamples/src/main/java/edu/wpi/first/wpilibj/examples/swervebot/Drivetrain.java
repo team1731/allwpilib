@@ -63,7 +63,7 @@ public class Drivetrain {
    */
   @SuppressWarnings("ParameterName")
   public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative) {
-    var swerveModuleStates = m_kinematics.toSwerveModuleStates(
+    SwerveModuleState[] swerveModuleStates = m_kinematics.toSwerveModuleStates(
         fieldRelative ? ChassisSpeeds.fromFieldRelativeSpeeds(
             xSpeed, ySpeed, rot, getAngle())
             : new ChassisSpeeds(xSpeed, ySpeed, rot)

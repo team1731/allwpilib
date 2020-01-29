@@ -35,14 +35,14 @@ public class Robot extends TimedRobot {
   private void driveWithJoystick(boolean fieldRelative) {
     // Get the x speed. We are inverting this because Xbox controllers return
     // negative values when we push forward.
-    final var xSpeed =
+    double xSpeed =
         -m_xspeedLimiter.calculate(m_controller.getY(GenericHID.Hand.kLeft))
             * edu.wpi.first.wpilibj.examples.mecanumbot.Drivetrain.kMaxSpeed;
 
     // Get the y speed or sideways/strafe speed. We are inverting this because
     // we want a positive value when we pull to the left. Xbox controllers
     // return positive values when you pull to the right by default.
-    final var ySpeed =
+    double ySpeed =
         -m_yspeedLimiter.calculate(m_controller.getX(GenericHID.Hand.kLeft))
             * edu.wpi.first.wpilibj.examples.mecanumbot.Drivetrain.kMaxSpeed;
 
@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
     // positive value when we pull to the left (remember, CCW is positive in
     // mathematics). Xbox controllers return positive values when you pull to
     // the right by default.
-    final var rot =
+    double rot =
         -m_rotLimiter.calculate(m_controller.getX(GenericHID.Hand.kRight))
             * edu.wpi.first.wpilibj.examples.mecanumbot.Drivetrain.kMaxAngularSpeed;
 
